@@ -1,69 +1,122 @@
 .member-stories {
-    padding: 60px 0;
-    background-color: #fff;
-  }
-  
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.story-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.story-image {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-content {
+  flex-grow: 1;
+}
+
+.story-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.story-content p {
+  color: #666;
+  margin-bottom: 10px;
+  width: 240px;
+  height: 84px;
+  font-size: 14px;
+}
+
+.read-more {
+  color: black;
+  font-weight: 500;
+  width: 88px;
+  height: 29px;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #DFDEDD;
+  transition: all 0.3s;
+  font-size: 14px;
+  text-align: center;
+}
+
+.read-more:hover {
+  background-color: #DFDEDD;
+  color: black;
+}
+
+/* Responsive Styling for Mobile */
+@media (max-width: 768px) {
   .stories-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-top: 30px;
-  }
-  
-  .story-card {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .story-image {
-    width: 200px;
-    flex-shrink: 0;
-  }
-  
-  .story-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-      }
-  
-  .story-content h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .story-content p {
-    color: #666;
-    margin-bottom: 10px;
-    width: 240px;
-    height: 84px;
-    font-size: 14px;
-  }
-  
-  .read-more {
-    color: black;
-    font-weight: 500;
-    width: 88px;
-    height: 29px;
-    display: inline-block;
-    padding: 4px 8px 4px 8px;
-    border-radius: 4px;
-    border: 1px solid #DFDEDD;
-        transition: all 0.3s;
-    font-size: 14px;
-  }
-  
-  .read-more:hover {
-    background-color: #DFDEDD;
-    color: black;
-  }
-  
-  @media (max-width: 768px) {
-    .stories-grid {
       grid-template-columns: 1fr;
       gap: 20px;
-    }
-    
-    .member-stories {
-      padding: 40px 0;
-    }
+      position: relative;
   }
+
+  /* Horizontal line below "Member Stories" title */
+  .stories-grid::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #DFDEDD;
+      margin: 10px auto 20px;
+  }
+
+  /* Ensure title is above image in mobile */
+  .story-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding-bottom: 20px;
+  }
+
+  .story-image {
+      width: 100%;
+      max-width: 300px;
+  }
+
+  .story-content {
+      width: 100%;
+      max-width: 300px;
+  }
+  
+  .story-content h3 {
+      font-size: 20px;
+      margin-top: 10px;
+  }
+
+  .story-content p {
+      width: 100%;
+      height: auto;
+  }
+
+  /* Add horizontal lines between each story */
+  .story-card:not(:last-child)::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #DFDEDD;
+      margin: 20px auto 0;
+  }
+}
