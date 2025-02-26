@@ -1,0 +1,14 @@
+.featured-options {
+    padding: 60px 0;
+    background-color: #f5f3ef;
+  }
+  
+  .options-list {
+    margin-top: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    .featured-options {
+      padding: 40px 0;
+    }
+  }

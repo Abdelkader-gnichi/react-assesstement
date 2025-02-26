@@ -1,37 +1,111 @@
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
+import './styles/Header.css';
+import logoImg from '../assets/images/logo.png';
 
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+function Header({ isMobileMenuOpen, setIsMobileMenuOpen, activeSection, setActiveSection }) {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
 
-const Header = () => {
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768);
+      if (window.innerWidth > 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [setIsMobileMenuOpen]);
+
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+    if (!isDesktop) {
+      setIsMobileMenuOpen(false);
+    }
+    
+    // Smooth scroll to section
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About us' },
+    { id: 'services', label: 'Services' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
   return (
-    <AppBar position="static" className="bg-black shadow-md">
-      <Toolbar className="flex justify-between">
-        <Typography variant="h6" className="text-red-500 font-gluten">
-          Central Texas Fly Fishing
-        </Typography>
-        <div className="flex gap-6">
-          <Button sx={{
-              color: "#18181B",
-              transparent: 'true',
-              borderRadius: 0.5,
-              justifyContent: "center",
-              alignItems: "center",
-             
-            }}>
-            Home
-          </Button>
-          <Button color="inherit" className="text-black">
-            About
-          </Button>
-          <Button color="inherit" className="text-black">
-            Services
-          </Button>
-          <Button color="inherit" className="text-black">
-            Contact
-          </Button>
+    <header className="header">
+      <div className="container header-container">
+        <div className="logo-container">
+          <img src={logoImg} alt="Central Texas Fly Fishing Logo" className="logo" />
+          <h1 className="logo-text">Central Texas Fly Fishing</h1>
         </div>
-      </Toolbar>
-    </AppBar>
+
+        {isDesktop ? (
+          <nav className="desktop-nav">
+            <ul>
+              {navItems.map(item => (
+                <li key={item.id}>
+                  <a 
+                    href={`#${item.id}`}
+                    className={activeSection === item.id ? 'active' : ''}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.id);
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : (
+          <button 
+            className="menu-toggle" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}></span>
+          </button>
+        )}
+
+        {!isDesktop && isMobileMenuOpen && (
+          <nav className="mobile-nav">
+            <ul>
+              {navItems.map(item => (
+                <li key={item.id}>
+                  <a 
+                    href={`#${item.id}`}
+                    className={activeSection === item.id ? 'active' : ''}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.id);
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </div>
+    </header>
   );
+}
+
+// Define PropTypes for the Header component
+Header.propTypes = {
+  isMobileMenuOpen: PropTypes.bool.isRequired,
+  setIsMobileMenuOpen: PropTypes.func.isRequired,
+  activeSection: PropTypes.string.isRequired,
+  setActiveSection: PropTypes.func.isRequired,
 };
 
 export default Header;
