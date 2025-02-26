@@ -2,6 +2,8 @@ import { useState } from 'react';
 import OptionItem from './OptionItem';
 import './styles/FeaturedOptions.css';
 import exploreImg from '../assets/images/explore.png';
+import optionItem2Img from '../assets/images/optionItem2.jpeg';
+import optionItem3Img from '../assets/images/optionItem3.jpeg';
 
 function FeaturedOptions() {
   const [expanded, setExpanded] = useState({
@@ -28,13 +30,13 @@ function FeaturedOptions() {
       id: 'experiences',
       title: 'Fly Fishing Experiences',
       description: 'Elit pellentesque habitant morbi tristique senectus et netus et. In hendrerit gravida rutrum quisque',
-      image: null,
+      image: optionItem2Img,
     },
     {
       id: 'gear',
       title: 'Gear Up and Catch More',
       description: 'In metus vulputate eu scelerisque felis. Suspendisse. Nunc scelerisque viverra mauris in aliquam sem.',
-      image: null,
+      image: optionItem3Img,
     },
   ];
 

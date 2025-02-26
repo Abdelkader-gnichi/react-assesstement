@@ -42,7 +42,9 @@ function Header({ isMobileMenuOpen, setIsMobileMenuOpen, activeSection, setActiv
     <header className="header">
       <div className="container header-container">
         <div className="logo-container">
+        <a href="/">
           <img src={logoImg} alt="Central Texas Fly Fishing Logo" className="logo" />
+        </a>
           <h1 className="logo-text">Central Texas Fly Fishing</h1>
         </div>
 
