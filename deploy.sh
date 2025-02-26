@@ -21,7 +21,10 @@ git add -A
 # Commit changes
 git commit -m 'deploy'
 
+# Rename master to main (if master exists)
+git branch -m master main
+
 # Force push to the gh-pages branch
-git push -f git@github-first:Abdelkader-gnichi/react-assesstement main:gh-pages
+git push -f git@github-first:Abdelkader-gnichi/react-assesstement.git main:gh-pages
 
 cd -
