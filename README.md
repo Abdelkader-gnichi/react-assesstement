@@ -75,7 +75,7 @@ The build is ready to be deployed to GitHub Pages or any other hosting service.
    ```json
    "scripts": {
      "predeploy": "npm run build",
-     "deploy": "gh-pages -d build"
+     "deploy": "sh deploy.sh"
    }
    ```
 
