@@ -11,7 +11,7 @@ touch .nojekyll
 
 # If you're deploying to a custom domain
 # echo 'www.example.com' > CNAME
-
+ 
 # Init git if not already done
 git init
 
@@ -22,6 +22,6 @@ git add -A
 git commit -m 'deploy'
 
 # Force push to the gh-pages branch
-git push -f https://github.com/YOUR_USERNAME/central-texas-fly-fishing.git main:gh-pages
+git push -f git@github-first:Abdelkader-gnichi/react-assesstement main:gh-pages
 
 cd -

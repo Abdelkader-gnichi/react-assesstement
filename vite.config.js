@@ -5,6 +5,6 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [tailwindcss(), react()],
-  base: '/central-texas-fly-fishing/', // replace with your repo name
+  base: '/react-assesstement/', // replace with your repo name
 })
 
