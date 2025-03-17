@@ -26,12 +26,12 @@ Before you begin, ensure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repository-name.git
+   git clone https://github.com/Abdelkader-gnichi/react-assesstement.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd your-repository-name
+   cd react-assesstement
    ```
 
 3. Install dependencies:
