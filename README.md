@@ -2,6 +2,12 @@
 
 This is the official website for Central Texas Fly Fishing. It is built with React and designed to be responsive across all devices.
 
+##  🎣 Visit the Live Website! 🎣
+
+**You can explore the live website here:** [Central Texas Fly Fishing](https://abdelkader-gnichi.github.io/react-assesstement/)  
+
+I've put a lot of effort into making this a user-friendly and informative site.  I hope you enjoy browsing it!  Feel free to check out the code in this repository, but seeing the project in action is highly recommended.
+
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
